@@ -6,19 +6,35 @@
     <title>สินค้าทั้งหมด</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script>
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
+        function addToCart(productName, productPrice, productImage) {
+            cart.push({ name: productName, price: productPrice, image: productImage });
+            localStorage.setItem('cart', JSON.stringify(cart)); // Save cart to localStorage
+            updateCartCount();
+        }
+
+        function updateCartCount() {
+            const cartCount = cart.length;
+            document.getElementById('cart-count').innerText = cartCount;
+        }
+
+        document.addEventListener('DOMContentLoaded', updateCartCount);
+    </script>
 </head>
 <body>
     <!-- Header Section -->
     <header>
         <div class="container">
-            <h1>ร้านอาหารสัตว์เลี้ยง Happy Pet</h1>
+            <h1>Happy Pet</h1>
             <nav>
                 <ul>
                     <li><a href="index.html">หน้าแรก</a></li>
                     <li><a href="products.html">สินค้าทั้งหมด</a></li>
                     <li><a href="about.html">เกี่ยวกับเรา</a></li>
                     <li><a href="contact.html">ติดต่อเรา</a></li>
+                    <li><a href="cart.html">ตะกร้า: <span id="cart-count">0</span> รายการ</a></li>
                 </ul>
             </nav>
         </div>
@@ -34,28 +50,28 @@
                     <img src="img/001.png" width="50%" alt="Product 1">
                     <h3>อาหารสุนัข</h3>
                     <p>ราคาสินค้า: 300 บาท</p>
-                    <button>เพิ่มในตะกร้า</button>
+                    <button onclick="addToCart('อาหารสุนัข', 300, 'img/001.png')">เพิ่มในตะกร้า</button>
                 </div>
                 <!-- Product Item 2 -->
                 <div class="product-item">
                     <img src="img/002.png" width="20%" alt="Product 2">
                     <h3>อาหารแมว</h3>
                     <p>ราคาสินค้า: 350 บาท</p>
-                    <button>เพิ่มในตะกร้า</button>
+                    <button onclick="addToCart('อาหารแมว', 350, 'img/002.png')">เพิ่มในตะกร้า</button>
                 </div>
                 <!-- Product Item 3 -->
                 <div class="product-item">
                     <img src="img/004.png" width="80%" alt="Product 3">
                     <h3>อาหารนกแก้ว</h3>
                     <p>ราคาสินค้า: 350 บาท</p>
-                    <button>เพิ่มในตะกร้า</button>
+                    <button onclick="addToCart('อาหารนกแก้ว', 350, 'img/004.png')">เพิ่มในตะกร้า</button>
                 </div>
                 <!-- Product Item 4 -->
                 <div class="product-item">
                     <img src="img/003.png" width="60%" alt="Product 3">
                     <h3>ของเล่นสุนัข</h3>
                     <p>ราคาสินค้า: 150 บาท</p>
-                    <button>เพิ่มในตะกร้า</button>
+                    <button onclick="addToCart('ของเล่นสุนัข', 150, 'img/003.png')">เพิ่มในตะกร้า</button>
                 </div>
             </div>
         </div>
@@ -64,7 +80,7 @@
     <!-- Footer Section -->
     <footer>
         <div class="container">
-            <p>&copy; 2024 ร้านอาหารสัตว์เลี้ยง Happy Pet. ทุกสิทธิ์ได้รับการคุ้มครอง.</p>
+            <p>&copy; 2024  Happy Pets. ทุกสิทธิ์ได้รับการคุ้มครอง.</p>
         </div>
     </footer>
 </body>

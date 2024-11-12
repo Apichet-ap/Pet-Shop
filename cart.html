@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ตะกร้าสินค้า</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        function updateCartItems() {
+            const cartItemsContainer = document.getElementById('cart-items');
+            cartItemsContainer.innerHTML = ''; // Clear existing items
+
+            cart.forEach((item, index) => {
+                const itemElement = document.createElement('div');
+                itemElement.className = 'cart-item';
+                itemElement.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}" width="50" height="50">
+                    ${item.name} - ${item.price} บาท
+                    <button onclick="removeFromCart(${index})">ลบ</button>
+                `;
+                cartItemsContainer.appendChild(itemElement);
+            });
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1); // Remove item from cart
+            localStorage.setItem('cart', JSON.stringify(cart)); // Update localStorage
+            updateCartItems(); // Update cart items display
+            updateCartTotal(); // Update total price
+            updateCartCount(); // Update cart count
+        }
+
+        function clearCart() {
+            cart = []; // Clear all items
+            localStorage.setItem('cart', JSON.stringify(cart)); // Update localStorage
+            updateCartItems(); // Update cart items display
+            updateCartTotal(); // Update total price
+            updateCartCount(); // Update cart count
+        }
+
+        function updateCartTotal() {
+            const total = cart.reduce((sum, item) => sum + item.price, 0);
+            document.getElementById('cart-total').innerText = `ราคารวม: ${total} บาท`;
+        }
+
+        function updateCartCount() {
+            const cartCount = cart.length;
+            document.getElementById('cart-count').innerText = cartCount;
+        }
+
+        function checkout() {
+            if (cart.length === 0) {
+                alert('ตะกร้าของคุณว่างเปล่า!');
+                return;
+            }
+
+            // สรุปรายการสินค้า
+            let summary = 'รายการสินค้าที่คุณต้องการชำระ:\n';
+            cart.forEach(item => {
+                summary += `${item.name} - ${item.price} บาท\n`;
+            });
+            summary += `\nราคารวม: ${cart.reduce((sum, item) => sum + item.price, 0)} บาท`;
+
+            // ยืนยันการชำระเงิน
+            if (confirm(summary + '\n\nคุณต้องการชำระเงินหรือไม่?')) {
+                alert('ขอบคุณที่ชำระเงิน!'); // Simulate payment process
+                clearCart(); // Clear cart after checkout
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            updateCartItems();
+            updateCartTotal();
+            updateCartCount();
+        });
+    </script>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <h1>Happy Pet</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">หน้าแรก</a></li>
+                    <li><a href="products.html">สินค้าทั้งหมด</a></li>
+                    <li><a href="about.html">เกี่ยวกับเรา</a></li>
+                    <li><a href="contact.html">ติดต่อเรา</a></li>
+                    <li>ตะกร้า: <span id="cart-count">0</span> รายการ</li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Cart Section -->
+    <section class="cart">
+        <div class="container">
+            <h2>สินค้าที่อยู่ในตะกร้า</h2>
+            <div id="cart-items"></div>
+            <div id="cart-total">ราคารวม: 0 บาท</div>
+            <button onclick="clearCart()">ลบทั้งหมด</button> <!-- ปุ่มลบทั้งหมด -->
+            <button onclick="checkout()">ชำระเงิน</button> <!-- ปุ่มชำระเงิน -->
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <!-- ... existing code ... -->
+</body>
+</html> 

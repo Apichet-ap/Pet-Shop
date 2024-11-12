@@ -52,11 +52,24 @@ header nav ul li a {
     color: white;
     font-weight: 600;
     text-transform: uppercase;
-    transition: color 0.3s ease;
+    padding: 10px 15px;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+    background-color: transparent; /* Ensure background is transparent */
 }
 
 header nav ul li a:hover {
     color: #ff7c7c; /* Change color on hover */
+}
+
+header nav ul li a:active {
+    color: #ff4d4d; /* Change color on click */
+}
+
+header nav ul li a span {
+    position: relative;
+    z-index: 1;
 }
 
 /* Main Section Styling */
@@ -210,4 +223,31 @@ footer p {
     .product-item {
         width: 80%;
     }
+}
+
+/* Button Styling */
+button {
+    padding: 10px 15px;
+    background-color: #ff4d4d; /* สีพื้นหลังปุ่มลบ */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #ff1a1a; /* สีเมื่อวางเมาส์ */
+    transform: scale(1.05); /* ขยายขนาดเล็กน้อยเมื่อวางเมาส์ */
+}
+
+button:active {
+    transform: scale(0.95); /* ลดขนาดเล็กน้อยเมื่อคลิก */
+}
+
+/* Specific styling for cart item buttons */
+.cart-item button {
+    margin-top: 10px;
+    display: inline-block;
 }
