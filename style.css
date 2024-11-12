@@ -19,9 +19,16 @@ header {
     background-color: rgba(0, 0, 0, 0.6);
     color: white;
     padding: 20px 0;
-    position: sticky;
+    position: fixed;
+    width: 100%;
     top: 0;
+    left: 0;
     z-index: 1000;
+    transition: top 0.3s;
+}
+
+header.hidden {
+    top: -100px; /* ซ่อนแถบเมนูเมื่อเลื่อนลง */
 }
 
 header .container {

@@ -6,7 +6,24 @@
     <title>ติดต่อเรา</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let lastScrollTop = 0;
+            const header = document.querySelector('header');
 
+            window.addEventListener('scroll', function() {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                if (scrollTop > lastScrollTop) {
+                    // Scroll down
+                    header.classList.add('hidden');
+                } else {
+                    // Scroll up
+                    header.classList.remove('hidden');
+                }
+                lastScrollTop = scrollTop;
+            });
+        });
+    </script>
 </head>
 <body>
     <!-- Header Section -->
