@@ -294,13 +294,14 @@ nav ul li a {
     text-decoration: none;
     color: #fff; /* สีข้อความของลิงก์เมนู */
     padding: 10px 15px;
-    transition: background-color 0.3s, color 0.3s;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
     border-radius: 5px;
 }
 
 nav ul li a:hover {
-    background-color: #ff7c7c; /* สีพื้นหลังของลิงก์เมนูเมื่อวางเมาส์ */
-    color: #fff; /* สีข้อความของลิงก์เมนูเมื่อวางเมาส์ */
+    background-color: #ffcc00; /* สีพื้นหลังเมื่อวางเมาส์ */
+    color: #333; /* สีข้อความเมื่อวางเมาส์ */
+    transform: scale(1.1); /* ขยายขนาดเล็กน้อยเมื่อวางเมาส์ */
 }
 
 section {

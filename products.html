@@ -20,7 +20,31 @@
             document.getElementById('cart-count').innerText = cartCount;
         }
 
-        document.addEventListener('DOMContentLoaded', updateCartCount);
+        function loadProducts() {
+            fetch('products.json')
+                .then(response => response.json())
+                .then(products => {
+                    const productList = document.querySelector('.product-list');
+                    productList.innerHTML = ''; // Clear existing products
+                    products.forEach(product => {
+                        const productItem = document.createElement('div');
+                        productItem.className = 'product-item';
+                        productItem.innerHTML = `
+                            <img src="${product.image}" width="60%" alt="${product.name}">
+                            <h3>${product.name}</h3>
+                            <p>ราคาสินค้า: ${product.price} บาท</p>
+                            <button onclick="addToCart('${product.name}', ${product.price}, '${product.image}')">เพิ่มในตะกร้า</button>
+                        `;
+                        productList.appendChild(productItem);
+                    });
+                })
+                .catch(error => console.error('Error loading products:', error));
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            updateCartCount();
+            loadProducts();
+        });
     </script>
 </head>
 <body>
@@ -32,10 +56,9 @@
                 <ul>
                     <li><a href="index.html">หน้าแรก</a></li>
                     <li><a href="products.html">สินค้าทั้งหมด</a></li>
-                    <li><a href="promotions.html">โปรโมชั่น</a></li>
                     <li><a href="about.html">เกี่ยวกับเรา</a></li>
                     <li><a href="contact.html">ติดต่อเรา</a></li>
-                    <li><a href="cart.html">ตะกร้า</a></li>
+                    <li><a href="cart.html">ตะกร้า (<span id="cart-count">0</span>)</a></li>
                     <li><a href="checkout.html">ชำระเงิน</a></li>
                 </ul>
             </nav>
@@ -47,34 +70,7 @@
         <div class="container">
             <h2>สินค้าของเรา</h2>
             <div class="product-list">
-                <!-- Product Item 1 -->
-                <div class="product-item">
-                    <img src="img/001.png" width="50%" alt="Product 1">
-                    <h3>อาหารสุนัข</h3>
-                    <p>ราคาสินค้า: 300 บาท</p>
-                    <button onclick="addToCart('อาหารสุนัข', 300, 'img/001.png')">เพิ่มในตะกร้า</button>
-                </div>
-                <!-- Product Item 2 -->
-                <div class="product-item">
-                    <img src="img/002.png" width="20%" alt="Product 2">
-                    <h3>อาหารแมว</h3>
-                    <p>ราคาสินค้า: 350 บาท</p>
-                    <button onclick="addToCart('อาหารแมว', 350, 'img/002.png')">เพิ่มในตะกร้า</button>
-                </div>
-                <!-- Product Item 3 -->
-                <div class="product-item">
-                    <img src="img/004.png" width="80%" alt="Product 3">
-                    <h3>อาหารนกแก้ว</h3>
-                    <p>ราคาสินค้า: 350 บาท</p>
-                    <button onclick="addToCart('อาหารนกแก้ว', 350, 'img/004.png')">เพิ่มในตะกร้า</button>
-                </div>
-                <!-- Product Item 4 -->
-                <div class="product-item">
-                    <img src="img/003.png" width="60%" alt="Product 3">
-                    <h3>ของเล่นสุนัข</h3>
-                    <p>ราคาสินค้า: 150 บาท</p>
-                    <button onclick="addToCart('ของเล่นสุนัข', 150, 'img/003.png')">เพิ่มในตะกร้า</button>
-                </div>
+                <!-- รายการสินค้าจะแสดงที่นี่ -->
             </div>
         </div>
     </section>

@@ -43,6 +43,11 @@
             const originalPrice = cartItems.reduce((total, item) => total + item.price, 0);
             const discount = 20; // ตัวอย่างส่วนลด 20%
             const checkoutUrl = `checkout.html?price=${originalPrice}&discount=${discount}`;
+            
+            // เคลียร์สินค้าจากตะกร้า
+            clearCart();
+
+            // นำผู้ใช้ไปยังหน้า checkout
             window.location.href = checkoutUrl;
         }
 
@@ -58,10 +63,9 @@
                 <ul>
                     <li><a href="index.html">หน้าแรก</a></li>
                     <li><a href="products.html">สินค้าทั้งหมด</a></li>
-                    <li><a href="promotions.html">โปรโมชั่น</a></li>
                     <li><a href="about.html">เกี่ยวกับเรา</a></li>
                     <li><a href="contact.html">ติดต่อเรา</a></li>
-                    <li><a href="cart.html">ตะกร้า</a></li>
+                    <li><a href="cart.html">ตะกร้า (<span id="cart-count">0</span>)</a></li>
                     <li><a href="checkout.html">ชำระเงิน</a></li>
                 </ul>
             </nav>
