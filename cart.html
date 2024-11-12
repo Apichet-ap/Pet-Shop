@@ -6,89 +6,63 @@
     <title>ตะกร้าสินค้า</title>
     <link rel="stylesheet" href="style.css">
     <script>
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
 
-        function updateCartItems() {
-            const cartItemsContainer = document.getElementById('cart-items');
-            cartItemsContainer.innerHTML = ''; // Clear existing items
-
-            cart.forEach((item, index) => {
-                const itemElement = document.createElement('div');
-                itemElement.className = 'cart-item';
-                itemElement.innerHTML = `
-                    <img src="${item.image}" alt="${item.name}" width="50" height="50">
-                    ${item.name} - ${item.price} บาท
-                    <button onclick="removeFromCart(${index})">ลบ</button>
-                `;
-                cartItemsContainer.appendChild(itemElement);
+        function updateCartDisplay() {
+            const cartList = document.getElementById('cart-list');
+            cartList.innerHTML = '';
+            cartItems.forEach((item, index) => {
+                const listItem = document.createElement('li');
+                listItem.textContent = `${item.name} - ${item.price} บาท`;
+                const deleteButton = document.createElement('button');
+                deleteButton.textContent = 'ลบ';
+                deleteButton.onclick = () => removeItem(index);
+                listItem.appendChild(deleteButton);
+                cartList.appendChild(listItem);
             });
         }
 
-        function removeFromCart(index) {
-            cart.splice(index, 1); // Remove item from cart
-            localStorage.setItem('cart', JSON.stringify(cart)); // Update localStorage
-            updateCartItems(); // Update cart items display
-            updateCartTotal(); // Update total price
-            updateCartCount(); // Update cart count
+        function removeItem(index) {
+            cartItems.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cartItems)); // Update localStorage
+            updateCartDisplay();
         }
 
         function clearCart() {
-            cart = []; // Clear all items
-            localStorage.setItem('cart', JSON.stringify(cart)); // Update localStorage
-            updateCartItems(); // Update cart items display
-            updateCartTotal(); // Update total price
-            updateCartCount(); // Update cart count
+            cartItems = [];
+            localStorage.setItem('cart', JSON.stringify(cartItems)); // Update localStorage
+            updateCartDisplay();
         }
 
-        function updateCartTotal() {
-            const total = cart.reduce((sum, item) => sum + item.price, 0);
-            document.getElementById('cart-total').innerText = `ราคารวม: ${total} บาท`;
-        }
-
-        function updateCartCount() {
-            const cartCount = cart.length;
-            document.getElementById('cart-count').innerText = cartCount;
-        }
-
-        function checkout() {
-            if (cart.length === 0) {
-                alert('ตะกร้าของคุณว่างเปล่า!');
+        function proceedToCheckout() {
+            if (cartItems.length === 0) {
+                alert('ไม่มีสินค้าในตะกร้า กรุณาเพิ่มสินค้าก่อนชำระเงิน');
                 return;
             }
 
-            // สรุปรายการสินค้า
-            let summary = 'รายการสินค้าที่คุณต้องการชำระ:\n';
-            cart.forEach(item => {
-                summary += `${item.name} - ${item.price} บาท\n`;
-            });
-            summary += `\nราคารวม: ${cart.reduce((sum, item) => sum + item.price, 0)} บาท`;
-
-            // ยืนยันการชำระเงิน
-            if (confirm(summary + '\n\nคุณต้องการชำระเงินหรือไม่?')) {
-                alert('ขอบคุณที่ชำระเงิน!'); // Simulate payment process
-                clearCart(); // Clear cart after checkout
-            }
+            const originalPrice = cartItems.reduce((total, item) => total + item.price, 0);
+            const discount = 20; // ตัวอย่างส่วนลด 20%
+            const checkoutUrl = `checkout.html?price=${originalPrice}&discount=${discount}`;
+            window.location.href = checkoutUrl;
         }
 
-        document.addEventListener('DOMContentLoaded', () => {
-            updateCartItems();
-            updateCartTotal();
-            updateCartCount();
-        });
+        document.addEventListener('DOMContentLoaded', updateCartDisplay);
     </script>
 </head>
 <body>
     <!-- Header Section -->
     <header>
         <div class="container">
-            <h1>Happy Pet</h1>
+            <h1> Happy Pets</h1>
             <nav>
                 <ul>
                     <li><a href="index.html">หน้าแรก</a></li>
                     <li><a href="products.html">สินค้าทั้งหมด</a></li>
+                    <li><a href="promotions.html">โปรโมชั่น</a></li>
                     <li><a href="about.html">เกี่ยวกับเรา</a></li>
                     <li><a href="contact.html">ติดต่อเรา</a></li>
-                    <li>ตะกร้า: <span id="cart-count">0</span> รายการ</li>
+                    <li><a href="cart.html">ตะกร้า</a></li>
+                    <li><a href="checkout.html">ชำระเงิน</a></li>
                 </ul>
             </nav>
         </div>
@@ -98,14 +72,19 @@
     <section class="cart">
         <div class="container">
             <h2>สินค้าที่อยู่ในตะกร้า</h2>
-            <div id="cart-items"></div>
-            <div id="cart-total">ราคารวม: 0 บาท</div>
-            <button onclick="clearCart()">ลบทั้งหมด</button> <!-- ปุ่มลบทั้งหมด -->
-            <button onclick="checkout()">ชำระเงิน</button> <!-- ปุ่มชำระเงิน -->
+            <ul id="cart-list">
+                <!-- รายการสินค้าในตะกร้าจะแสดงที่นี่ -->
+            </ul>
+            <button onclick="proceedToCheckout()">ชำระเงิน</button>
+            <button onclick="clearCart()">ลบสินค้าทั้งหมด</button>
         </div>
     </section>
-
+    
     <!-- Footer Section -->
-    <!-- ... existing code ... -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024  Happy Pets. ทุกสิทธิ์ได้รับการคุ้มครอง.</p>
+        </div>
+    </footer>
 </body>
 </html> 
