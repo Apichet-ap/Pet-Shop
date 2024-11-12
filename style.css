@@ -253,3 +253,126 @@ button:active {
     margin-top: 10px;
     display: inline-block;
 }
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header {
+    background-color: #333; /* สีพื้นหลังของแถบเมนู */
+    padding: 10px 0;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 24px;
+    color: #fff; /* สีข้อความของชื่อเว็บไซต์ */
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+nav ul li {
+    margin: 0 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff; /* สีข้อความของลิงก์เมนู */
+    padding: 10px 15px;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 5px;
+}
+
+nav ul li a:hover {
+    background-color: #ff7c7c; /* สีพื้นหลังของลิงก์เมนูเมื่อวางเมาส์ */
+    color: #fff; /* สีข้อความของลิงก์เมนูเมื่อวางเมาส์ */
+}
+
+section {
+    padding: 20px 0;
+}
+
+footer {
+    background-color: #f8f8f8;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.product-list, .cart-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.product-item, .cart-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    width: calc(25% - 20px);
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.product-item img, .cart-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .product-item, .cart-item {
+        width: calc(50% - 20px);
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .product-item, .cart-item {
+        width: calc(100% - 20px);
+    }
+
+    header h1 {
+        font-size: 20px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+}
