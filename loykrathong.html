@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ลอยกระทงออนไลน์</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff;
+            color: #333;
+            overflow: hidden;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .content {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .river {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            background-color: #87ceeb;
+            overflow: hidden;
+        }
+
+        .krathong {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-image: url('img/krathong.png'); /* ใส่ภาพกระทง */
+            background-size: cover;
+            cursor: pointer;
+        }
+
+        .button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>ลอยกระทงออนไลน์</h1>
+    </header>
+
+    <section class="content">
+        <button class="button" onclick="launchKrathong()">ลอยกระทง</button>
+    </section>
+
+    <div class="river" id="river">
+        <!-- กระทงจะถูกเพิ่มที่นี่ -->
+    </div>
+
+    <script>
+        function launchKrathong() {
+            const river = document.getElementById('river');
+            const krathong = document.createElement('div');
+            krathong.className = 'krathong';
+            krathong.style.left = Math.random() * (river.offsetWidth - 50) + 'px';
+            krathong.style.top = river.offsetHeight + 'px';
+
+            river.appendChild(krathong);
+
+            let position = river.offsetHeight;
+            const interval = setInterval(() => {
+                if (position <= -50) {
+                    clearInterval(interval);
+                    river.removeChild(krathong);
+                } else {
+                    position -= 1;
+                    krathong.style.top = position + 'px';
+                }
+            }, 20);
+        }
+    </script>
+</body>
+</html> 
