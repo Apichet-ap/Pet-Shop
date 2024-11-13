@@ -13,13 +13,19 @@
             cartList.innerHTML = '';
             cartItems.forEach((item, index) => {
                 const listItem = document.createElement('li');
-                listItem.textContent = `${item.name} - ${item.price} บาท`;
-                const deleteButton = document.createElement('button');
-                deleteButton.textContent = 'ลบ';
-                deleteButton.onclick = () => removeItem(index);
-                listItem.appendChild(deleteButton);
+                listItem.innerHTML = `
+                    ${item.name} - ${item.price} บาท
+                    <input type="number" min="1" value="${item.quantity || 1}" onchange="updateQuantity(${index}, this.value)">
+                    <button onclick="removeItem(${index})">ลบ</button>
+                `;
                 cartList.appendChild(listItem);
             });
+        }
+
+        function updateQuantity(index, quantity) {
+            cartItems[index].quantity = parseInt(quantity);
+            localStorage.setItem('cart', JSON.stringify(cartItems)); // Update localStorage
+            updateCartDisplay();
         }
 
         function removeItem(index) {
@@ -40,7 +46,7 @@
                 return;
             }
 
-            const originalPrice = cartItems.reduce((total, item) => total + item.price, 0);
+            const originalPrice = cartItems.reduce((total, item) => total + (item.price * (item.quantity || 1)), 0);
             const discount = 20; // ตัวอย่างส่วนลด 20%
             const checkoutUrl = `checkout.html?price=${originalPrice}&discount=${discount}`;
             

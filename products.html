@@ -33,6 +33,7 @@
                             <img src="${product.image}" width="60%" alt="${product.name}">
                             <h3>${product.name}</h3>
                             <p>ราคาสินค้า: ${product.price} บาท</p>
+                            <p>${product.description}</p>
                             <button onclick="addToCart('${product.name}', ${product.price}, '${product.image}')">เพิ่มในตะกร้า</button>
                         `;
                         productList.appendChild(productItem);
@@ -61,6 +62,10 @@
                     <li><a href="cart.html">ตะกร้า (<span id="cart-count">0</span>)</a></li>
                     <li><a href="checkout.html">ชำระเงิน</a></li>
                 </ul>
+                <form class="search-form" onsubmit="searchProducts(event)">
+                    <input type="text" placeholder="ค้นหาสินค้า...">
+                    <button type="submit">ค้นหา</button>
+                </form>
             </nav>
         </div>
     </header>
