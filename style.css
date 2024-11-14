@@ -28,6 +28,7 @@ header {
 
 header h1 {
     margin: 0;
+    font-family: 'Droid Sans', Times, serif;
     font-size: 36px;
     color: #ff00ae;
     padding: 10px 20px;
@@ -59,7 +60,7 @@ nav ul li {
 
 nav ul li a {
     text-decoration: none;
-    color: #000000;
+    color: #795548;
     border-color: #000000;
     border-width: 10px;
     padding: 10px 20px;
@@ -68,8 +69,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    background-color: #ff97e0;
-    color: #fff;
+    color: #ff00e1;
     transform: scale(1.1);
 }
 .menu-toggle {
@@ -85,10 +85,12 @@ nav ul li a:hover {
 }
  
 .hero .btn {
-    background-color: #fa00bbae;
-    color: #fff;
+    font-family: 'Droid Sans', Times, serif;
+    background-color: #ffffff;
+    color: #ff00dd;
     padding: 12px 25px;
     text-decoration: none;
+    border-color: #000000;
     border-radius: 5px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
@@ -98,6 +100,8 @@ nav ul li a:hover {
 
 .hero .btn:hover {
     background-color: #ff8ff2;
+    color: #000000;
+    border-color: #000000;
     transform: translateY(-2px);
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 }
@@ -123,21 +127,22 @@ nav ul li a:hover {
 .search-form button {
     padding: 5px 10px;
     border-radius: 5px;
-    border: none;
-    background-color: #fa00bb;
-    color: #fff;
+    border: 1px solid #000000;
+    background-color: #ffffff;
+    color: #795548;
     align-items: center;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
 .search-form button:hover {
+    color: #ffffff;
     background-color: #ff8ff2;
 }
 .products {
     padding: 60px 0;
     text-align: center;
-    color: #333;
+    color: #000000;
 }
 
 .product-list {
@@ -149,8 +154,9 @@ nav ul li a:hover {
 
 .product-item {
     background-color: #fff;
-    border: 1px solid #ddd;
+    border: 1px solid #000000;
     border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.381);
     padding: 20px;
     width: calc(33.333% - 40px);
     box-sizing: border-box;
@@ -164,10 +170,10 @@ nav ul li a:hover {
 }
 
 .product-item button {
-    background-color: #ff00c3;
-    color: #fff;
+    background-color: #ffffff8b;
+    color: #ff02ea;
     padding: 10px 20px;
-    border: none;
+    border-color: #ff02ea;
     border-radius: 5px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     cursor: pointer;
@@ -176,7 +182,7 @@ nav ul li a:hover {
 }
 
 .product-item button:hover {
-    background-color: #fc77e1;
+    background-color: #ff44d6;
     color: #000000;
     transform: translateY(-2px);
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
@@ -186,9 +192,53 @@ nav ul li a:hover {
     transform: translateY(0);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+.customer-reviews {
+    background-color: #d8d8d830;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+}
+
+.customer-reviews h2 {
+    text-align: center;
+    color: #000000;
+}
+
+.review {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-bottom: 1px solid #bdbdbd2b;
+}
+
+.review p {
+    font-style: italic;
+    color: #ff00c891;
+    font-size: 18px;
+    border-radius: 10px;
+    border-color: #000000;
+    border-width: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.review p:hover {
+    color: #ff00d0;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+
+}
+.review span {
+    display: block;
+    text-align: right;
+    color: #000000;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+.share-button {
+    text-align: center;
+    margin-top: 20px;
+
+}
 .contact {
     padding: 60px 0;
-    text-align: center; /* จัดข้อความให้อยู่ตรงกลาง */
+    text-align: center; 
     color: #333;
 }
 
@@ -202,10 +252,10 @@ nav ul li a:hover {
 }
 
 .cart button {
-    background-color: #ff0080; 
-    color: #fff;
+    background-color: #ffffff; 
+    color: #ff00dd;
     padding: 12px 25px;
-    border: none;
+    border: 1px solid #000000;
     border-radius: 5px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     cursor: pointer;
@@ -215,6 +265,7 @@ nav ul li a:hover {
 
 .cart button:hover {
     background-color: #ff99f5; 
+    color: #000000;
     transform: translateY(-2px);
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 }
@@ -230,12 +281,12 @@ nav ul li a:hover {
 }
 
 .checkout button {
-    background-color: #ff0080;
-    color: #fff;
+    background-color: #ffffff;
+    color: #ff00dd;
     padding: 12px 25px;
-    border: none;
+    border: 1px solid #000000;
     border-radius: 5px;
-    box-shadow: 0 4px 6px rgba(102, 0, 76, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
     margin-top: 20px;
@@ -243,6 +294,7 @@ nav ul li a:hover {
 
 .checkout button:hover {
     background-color: #ff99f5;
+    color: #000000;
     transform: translateY(-2px);
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 }
@@ -257,4 +309,33 @@ footer {
     padding: 15px 0;
     color: #fff;
     margin-top: auto;
+}
+
+/* การตั้งค่าทั่วไปสำหรับการ์ดสินค้า */
+.product-card {
+    width: 30%;
+    margin: 10px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+    transform: scale(1.05);
+}
+
+/* Media Queries for smaller screens */
+@media (max-width: 768px) {
+    #review-text, #review-author {
+        width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    #review-text, #review-author {
+        width: 95%;
+    }
 }

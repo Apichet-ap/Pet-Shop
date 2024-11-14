@@ -61,11 +61,12 @@
                     <li><a href="contact.html">ติดต่อเรา</a></li>
                     <li><a href="cart.html">ตะกร้า (<span id="cart-count">0</span>)</a></li>
                     <li><a href="checkout.html">ชำระเงิน</a></li>
+                    <form class="search-form" onsubmit="searchProducts(event)">
+                        <input type="text" placeholder="ค้นหาสินค้า...">
+                        <button type="submit">ค้นหา</button>
+                    </form>
                 </ul>
-                <form class="search-form" onsubmit="searchProducts(event)">
-                    <input type="text" placeholder="ค้นหาสินค้า...">
-                    <button type="submit">ค้นหา</button>
-                </form>
+                
             </nav>
         </div>
     </header>
@@ -79,6 +80,22 @@
             </div>
         </div>
     </section>
+    <!-- Customer Reviews Section -->
+    <div class="customer-reviews">
+        <h2>รีวิวจากลูกค้า</h2>
+        <div id="review-container"></div>
+        <script src="JavaScript.js"></script>
+        <div class="review">
+            <p>"สินค้าดีมาก! สัตว์เลี้ยงของฉันชอบมากค่ะ"</p>
+            <span>- คุณสมศรี</span>
+        </div>
+        <div class="review">
+            <p>"บริการรวดเร็วและเป็นกันเองมากครับ"</p>
+            <span>- คุณสมชาย</span>
+            
+        </div>    
+        <div class="share-button"><button onclick="shareReview()">แชร์รีวิวนี้</button></div>
+    </div>
 
     <!-- Footer Section -->
     <footer>
