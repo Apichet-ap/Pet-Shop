@@ -19,6 +19,10 @@ body {
 
 header {
     background-color: #fccde9;
+    border-radius: 10px;
+    border-color: #000000;
+    border-width: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 20px 0;
     text-align: center;
     display: flex;
@@ -44,11 +48,19 @@ header h1:hover {
     transform: scale(1.05); /* ขยายขนาดเล็กน้อยเมื่อวางเมาส์ */
     box-shadow: 0 6px 8px rgb(255, 0, 157); /* เพิ่มเงาเมื่อวางเมาส์ */
 }
-
+nav {
+    background-color: #fccde9;
+    padding: 10px 0;  
+    border-radius: 10px;
+    border-color: #000000;
+    border-width: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}   
 nav ul {
     list-style: none;
     padding: 0;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     margin-top: 10px;
@@ -157,6 +169,7 @@ nav ul li a:hover {
     border: 1px solid #000000;
     border-radius: 5px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.381);
+    flex-basis: calc(33.333% - 40px);
     padding: 20px;
     width: calc(33.333% - 40px);
     box-sizing: border-box;
@@ -166,7 +179,11 @@ nav ul li a:hover {
 .product-item img {
     max-width: 100%;
     height: auto;
+    flex-basis: 100%;
     border-radius: 5px;
+    border-color: #000000;
+    border-width: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .product-item button {
@@ -313,7 +330,8 @@ footer {
 
 /* การตั้งค่าทั่วไปสำหรับการ์ดสินค้า */
 .product-card {
-    width: 30%;
+    width: 100%;
+    max-width: 300px;
     margin: 10px;
     padding: 15px;
     border: 1px solid #ddd;
@@ -327,15 +345,51 @@ footer {
     transform: scale(1.05);
 }
 
-/* Media Queries for smaller screens */
+/* Media Queries for responsive design */
+@media (max-width: 1024px ) {
+    #review-text, #review-author {
+        width: 90%;
+        margin: 10px;
+        padding: 10px;
+        border-radius: 5px;
+        border-color: #000000;
+        border-width: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+}
+
 @media (max-width: 768px) {
     #review-text, #review-author {
         width: 90%;
+        margin: 10px;
+        padding: 10px;
+        border-radius: 5px;
+        border-color: #000000;
+        border-width: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 }
 
 @media (max-width: 480px) {
     #review-text, #review-author {
-        width: 95%;
+        width: 90%;
+        margin: 10px;
+        padding: 10px;
+        border-radius: 5px;
+        border-color: #000000;
+        border-width: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+}
+
+@media (max-width: 320px) {
+    #review-text, #review-author {
+        width: 90%;
+        margin: 10px;
+        padding: 10px;
+        border-radius: 5px;
+        border-color: #000000;
+        border-width: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 }
