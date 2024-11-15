@@ -22,7 +22,7 @@
         }
 
         function loadProducts() {
-            fetch('products.json')
+            fetch('products.html')
                 .then(response => response.json())
                 .then(products => {
                     const productList = document.querySelector('.product-list');
@@ -77,7 +77,74 @@
         <div class="container">
             <h2>สินค้าของเรา</h2>
             <div class="product-list" width="100%">
-                <!-- รายการสินค้าจะแสดงที่นี่ -->
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="img/001.png" class="card-img-top" alt="อาหารสุนัข">
+                            <div class="card-body">
+                                <h5 class="card-title">อาหารสุนัข</h5>
+                                <p class="card-text">ราคาสินค้า: 300 บาท</p>
+                                <p class="card-text">อาหารสุนัขคุณภาพสูงสำหรับสุนัขทุกสายพันธุ์</p>
+                                <a href="#" class="btn btn-custom">เพิ่มในตะกร้า</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="img/002.png" class="card-img-top" alt="อาหารแมว">
+                            <div class="card-body">
+                                <h5 class="card-title">อาหารแมว</h5>
+                                <p class="card-text">ราคาสินค้า: 300 บาท</p>
+                                <p class="card-text">อาหารแมวคุณภาพสูงสำหรับแมวทุกสายพันธุ์</p>
+                                <a href="#" class="btn btn-custom">เพิ่มในตะกร้า</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="img/004.png" class="card-img-top" alt="อาหารนกแก้ว">
+                            <div class="card-body">
+                                <h5 class="card-title">อาหารนกแก้ว</h5>
+                                <p class="card-text">ราคาสินค้า: 300 บาท</p>
+                                <p class="card-text">อาหารนกแก้วคุณภาพสูงสำหรับนกแก้วทุกสายพันธุ์</p>
+                                <a href="#" class="btn btn-custom">เพิ่มในตะกร้า</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="img/003.png" class="card-img-top" alt="ของเล่นสุนัข">
+                            <div class="card-body">
+                                <h5 class="card-title">ของเล่นสุนัข</h5>
+                                <p class="card-text">ราคาสินค้า: 300 บาท</p>
+                                <p class="card-text">ของเล่นสุนัขที่ทนทานและปลอดภัยสำหรับสุนัขทุกขนาด</p>
+                                <a href="#" class="btn btn-custom">เพิ่มในตะกร้า</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="img/005.png" class="card-img-top" alt="ปลอกคอแมว">
+                            <div class="card-body">
+                                <h5 class="card-title">ปลอกคอแมว</h5>
+                                <p class="card-text">ราคาสินค้า: 300 บาท</p>
+                                <p class="card-text">ปลอกคอแมวที่มีดีไซน์สวยงามและสวมใส่สบาย</p>
+                                <a href="#" class="btn btn-custom">เพิ่มในตะกร้า</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="img/006.png" class="card-img-top" alt="แปรงสุนัข">
+                            <div class="card-body">
+                                <h5 class="card-title">แปรงสุนัข</h5>
+                                <p class="card-text">ราคาสินค้า: 300 บาท</p>
+                                <p class="card-text">แปรงสุนัขที่มีดีไซน์สวยงามและสวมใส่สบาย</p>
+                                <a href="#" class="btn btn-custom">เพิ่มในตะกร้า</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -97,7 +164,9 @@
         </div>    
         <div class="share-button"><button onclick="shareReview()">แชร์รีวิวนี้</button></div>
     </div>
-
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <!-- Footer Section -->
     <footer>
         <div class="container">
