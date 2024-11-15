@@ -159,7 +159,6 @@ nav ul li a:hover {
 
 .product-list {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
 }
@@ -169,7 +168,6 @@ nav ul li a:hover {
     border: 1px solid #000000;
     border-radius: 5px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.381);
-    flex-basis: calc(33.333% - 40px);
     padding: 20px;
     width: calc(33.333% - 40px);
     box-sizing: border-box;
@@ -179,7 +177,6 @@ nav ul li a:hover {
 .product-item img {
     max-width: 100%;
     height: auto;
-    flex-basis: 100%;
     border-radius: 5px;
     border-color: #000000;
     border-width: 10px;
@@ -346,7 +343,7 @@ footer {
 }
 
 /* Media Queries for responsive design */
-@media (max-width: 1024px ) {
+@media (screen-width: 1024px ) {
     #review-text, #review-author {
         width: 90%;
         margin: 10px;
@@ -359,37 +356,74 @@ footer {
 }
 
 @media (max-width: 768px) {
-    #review-text, #review-author {
+    #review-text, #review-author #btn {
         width: 90%;
         margin: 10px;
         padding: 10px;
+        display: flex;
         border-radius: 5px;
         border-color: #000000;
         border-width: 10px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .container {
+    .product-card,.product-item {
+        width: 80%;
+
+
+    }
+    .product-list {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
     }
 }
 
 @media (max-width: 480px) {
-    #review-text, #review-author {
+    #review-text, #review-author #btn  {
         width: 90%;
         margin: 10px;
         padding: 10px;
+        display: grid;
         border-radius: 5px;
         border-color: #000000;
         border-width: 10px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
+.container {
+    .product-card,.product-item,.product-list {
+        font-size: 24px;
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        flex-wrap: wrap;
+        align-content: center;
+        align-items: center;
+}
 }
 
 @media (max-width: 320px) {
     #review-text, #review-author {
-        width: 90%;
+        width: 60%;
         margin: 10px;
         padding: 10px;
         border-radius: 5px;
         border-color: #000000;
         border-width: 10px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    }
+    .product-card,.product-item,.product-list {
+        font-size: 12px;
+        position: center;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
     }
 }
