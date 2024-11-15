@@ -265,28 +265,27 @@ nav ul li a:hover {
     color: #333;
 }
 
-.cart button {
-    background-color: #ffffff; 
-    color: #ff00dd;
-    padding: 12px 25px;
+.btn-custom {
+    background-color: #ffffff;
+    color: rgb(255, 0, 208);
+    padding: 10px 20px;
     border: 1px solid #000000;
     border-radius: 5px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-    margin: 10px;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 4px 6px rgba(255, 0, 200, 0.426);
 }
 
-.cart button:hover {
-    background-color: #ff99f5; 
-    color: #000000;
+.btn-custom:hover {
+    background-color: #ff85c0;
+    color: #ffffff;
     transform: translateY(-2px);
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 }
 
-.cart button:active {
+.btn-custom:active {
+    background-color: #ff69b4;
     transform: translateY(0);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 .checkout {
     padding: 60px 0;
