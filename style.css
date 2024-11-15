@@ -378,8 +378,8 @@ footer {
         flex-direction: column;
         gap: 10px;
         flex-wrap: wrap;
-        padding-right: 10px;
-        padding-left: 10px;
+        padding-right: 15px;
+        padding-left: 15px;
         align-content: center;
         align-items: center;
 }
@@ -390,8 +390,8 @@ footer {
         width: 100%;
         font-size: 12px;
         position: center;
-        padding-right: 10px;
-        padding-left: 10px;
+        padding-right: 15px;
+        padding-left: 15px;
         display: flex;
         flex-direction: column;
         gap: 10px;
